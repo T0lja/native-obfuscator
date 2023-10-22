@@ -1,5 +1,6 @@
 package by.radioegor146;
 
+import dev.tolja.ReLinkJar;
 import picocli.CommandLine;
 
 import java.io.File;
@@ -12,6 +13,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
+
+import static dev.tolja.ReLinkJar.ReLink;
+import static dev.tolja.RunPowerShellCommands.RunCommands;
 
 public class Main {
 
@@ -70,7 +74,8 @@ public class Main {
 
             new NativeObfuscator().process(jarFile.toPath(), Paths.get(outputDirectory),
                     libs, blackList, whiteList, libraryName, platform, useAnnotations, generateDebugJar);
-
+            RunCommands();
+            ReLink();
             return 0;
         }
     }
